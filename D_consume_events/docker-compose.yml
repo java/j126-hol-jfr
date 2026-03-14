@@ -1,0 +1,29 @@
+services:
+  springboot-petclinic-service:
+    build:
+      context: ../spring-petclinic
+      dockerfile: Dockerfile
+    container_name:  springboot-petclinic-service
+    volumes:
+      - ./recordings:/recordings
+      - ../custom.jfc:/custom.jfc
+    ports:
+      - 8080:8080
+      - 1099:1099
+    networks:
+      default: null
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9090:9090
+    links:
+      - springboot-petclinic-service
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      default: null
+
+networks:
+  default:
+    name: backend
