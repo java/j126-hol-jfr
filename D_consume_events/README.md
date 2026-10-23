@@ -321,7 +321,7 @@ The goal is to use built-in JDK events, and publish useful values such as CPU lo
 2. Enable built-in JDK events `jdk.CPULoad` and `jdk.GarbageCollection`. For `jdk.CPULoad`, configure its sampling period to 1 second:
 
 ```java
-recordingStream.enable("jdk.CPULoad").withPeriod(Duration.ofSeconds(1));;
+recordingStream.enable("jdk.CPULoad").withPeriod(Duration.ofSeconds(1));
 recordingStream.enable("jdk.GarbageCollection");
 ```
 
