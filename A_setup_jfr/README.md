@@ -78,7 +78,7 @@ $ java -XX:AOTCacheOutput=app.aot -XX:StartFlightRecording=settings=../custom.jf
 > The one-step process for creating an AOT cache has increased memory needs. A second JVM, with identical settings, is created to build the cache once the shutdown process for the first JVM is started. You can see this in the output with the logging statement `Launching child process`. If this might be an issue in your production environment, you can follow the two-step cache creation process here: [https://openjdk.org/jeps/514#Motivation](https://openjdk.org/jeps/514#Motivation)
 
 
-3. With the AOT cache created, let's use it improve the start up performance for our application by telling it to use the cache with `-XX:AOTCache=[cache-name]`:
+3. With the AOT cache created, let's use it to improve the start up performance for our application by telling it to use the cache with `-XX:AOTCache=[cache-name]`:
 
 ```shell
 $ java -XX:AOTCache=app.aot -XX:StartFlightRecording=settings=../custom.jfc,dumponexit=true,filename=recording-with-cache.jfr -jar target/spring-petclinic-4.0.0-SNAPSHOT.jar
@@ -108,7 +108,7 @@ The extract step is needed because Spring Boot uses a custom class loader to sup
 # exec in a terminal window opened with `spring-petclinic` as working directory 
 $ java -Djarmode=tools -jar target/spring-petclinic-4.0.0-SNAPSHOT.jar extract --destination extracted
 ```
-The tree of the working directory (`spring-petclinic`) should like the one below:
+The tree of the working directory (`spring-petclinic`) should look like the one below:
 
 
 

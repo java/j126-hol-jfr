@@ -139,7 +139,7 @@ public class CustomMetricsListener implements ServletContextListener {
 
 ```java
 
-recordingStream.enable("jdk.CPULoad").withPeriod(Duration.ofSeconds(1));;
+recordingStream.enable("jdk.CPULoad").withPeriod(Duration.ofSeconds(1));
 recordingStream.enable("jdk.GarbageCollection");
 ```
 
